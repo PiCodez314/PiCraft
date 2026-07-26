@@ -1,0 +1,23 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "description": {
+            "identifier": "picraft:fireball_wand",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "Fireball Wand"
+            },
+            "minecraft:icon": "picraft_fireball_wand",
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:cooldown": {
+                "category": "picraft_fireball_wand",
+                "duration": 3.0
+            }
+        }
+    }
+}

@@ -7,6 +7,15 @@
         },
         "picraft_dragon_egg": {
             "textures": "textures/items/dragon_egg"
+        },
+        "picraft_fireball_wand": {
+            "textures": "textures/items/fireball_wand"
+        },
+        "picraft_grapple_hook": {
+            "textures": "textures/items/grapple_hook"
+        },
+        "picraft_teleport_scroll": {
+            "textures": "textures/items/teleport_scroll"
         }
     }
 }

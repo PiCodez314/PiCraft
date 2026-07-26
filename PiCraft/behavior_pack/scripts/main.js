@@ -1,5 +1,8 @@
 import {world} from "@minecraft/server";
 import "./items/luckyBlock.js";
+import "./magic/fireballWand.js";
+import "./magic/grappleHook.js";
+import "./magic/teleportScroll.js";
 
 world.afterEvents.playerSpawn.subscribe((event) => {
     if (event.initialSpawn) {

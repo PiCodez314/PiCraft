@@ -3,3 +3,6 @@ item.picraft:lucky_block.name=Lucky Block
 item.picraft:dragon_egg.name=Dragon Egg
 item.spawn_egg.entity.picraft:dragon.name=Dragon Egg
 entity.picraft:dragon.name=Dragon
+item.picraft:fireball_wand.name=Fireball Wand
+item.picraft:grapple_hook.name=Grapple Hook
+item.picraft:teleport_scroll.name=Teleport Scroll
