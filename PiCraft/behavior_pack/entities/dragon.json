@@ -77,7 +77,7 @@
                 "on_rider_enter_event": "picraft:on_rider_enter",
                 "on_rider_exit_event": "picraft:on_rider_exit"
             },
-            "minecraft:input_air_controlled": {
+            "minecraft:free_camera_controlled": {
                 "strafe_speed_modifier": 1,
                 "backwards_movement_modifier": 0.5
             },
