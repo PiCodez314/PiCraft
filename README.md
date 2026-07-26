@@ -13,6 +13,17 @@ A Minecraft Bedrock add-on created for family LAN adventures.
 
 Version 0.1.0
 
+## Getting started (designing with Claude Code)
+
+This repo is set up to work with [Claude Code](https://claude.com/product/claude-code) — it already knows the project structure, past gotchas, and has a repeatable process for adding new content.
+
+1. Install Claude Code and open it in this repo folder.
+2. Do the one-time [Development setup](#development-setup) below (symlinks) so you can test in-game.
+3. To add something new — an item, block, mob, boss, quest, whatever — just ask for it in plain language, e.g. "add a new sword that shoots lightning" or "add a boss fight in the nether." Claude Code will ask a few questions about how it should work, then build it, generate placeholder art, check its own work, and tell you when to relaunch Minecraft to test it.
+4. When something's ready to share, ask Claude Code to "package a release" to produce an `.mcaddon` file in `Releases/`.
+
+Everything it needs to do this well lives in `.claude/` (skills + specialized helper agents) and `.claude/CLAUDE.md` (project notes and lessons learned) — already part of this repo, nothing extra to set up.
+
 ## Development setup
 
 To test changes in-game, Minecraft needs to load the packs directly from this repo instead of a copy. Create symlinks from Minecraft's dev pack folders to this repo's `PiCraft/behavior_pack` and `PiCraft/resource_pack` directories.

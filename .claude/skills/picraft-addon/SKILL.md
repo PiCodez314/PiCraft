@@ -11,7 +11,7 @@ Read `.claude/CLAUDE.md` first — it documents the current pack structure and a
 
 ## Standard workflow for a new item/block/entity
 
-1. **Scope it with the user first.** Ask about behavior specifics (trigger method, cooldown vs one-shot, visual complexity) before writing files — see how prior features (Lucky Block outcome pool, dragon riding/taming, magic item cooldowns) were scoped via clarifying questions before implementation.
+1. **Scope it with the user first.** Ask about behavior specifics (trigger method, cooldown vs one-shot, visual complexity) before writing files — see how prior features (Lucky Block outcome pool, dragon riding/taming, magic item cooldowns) were scoped via clarifying questions before implementation. For a vague or open-ended request (e.g. "add a boss fight", "add achievements"), delegate this scoping step to the `bedrock-designer` agent, which produces a concrete spec (files, components, behaviors) to implement against instead of scoping ad hoc.
 
 2. **Behavior-pack definition** (`PiCraft/behavior_pack/`):
    - New item: `items/<name>.json` with `minecraft:display_name` set explicitly (see Lessons learned — don't rely on `.lang` alone).
@@ -24,23 +24,17 @@ Read `.claude/CLAUDE.md` first — it documents the current pack structure and a
    - Register the new script file in `main.js` with a bare `import "./path/to/file.js";`.
 
 4. **Resource-pack wiring** (`PiCraft/resource_pack/`):
-   - Item/block icon: generate a flat-color placeholder PNG (there's no access to vanilla texture files in this environment — see Lessons learned) and add an entry to `textures/item_texture.json` (items) or `textures/terrain_texture.json` + `blocks.json` (blocks).
-   - Entity: needs a full client entity JSON under `entity/`, plus `models/entity/*.geo.json`, `animations/*.animation.json`, `render_controllers/*.render_controllers.json`, and a texture — all cross-referenced by short names, not file paths, in the client entity JSON.
+   - Item/block icon: delegate placeholder art generation to the `bedrock-asset-gen` agent (flat-color PNG — there's no access to vanilla texture files in this environment, see Lessons learned), then add the entry it reports to `textures/item_texture.json` (items) or `textures/terrain_texture.json` + `blocks.json` (blocks) yourself — asset generation and JSON wiring are separate steps.
+   - Entity: needs a full client entity JSON under `entity/`, plus `models/entity/*.geo.json`, `animations/*.animation.json`, `render_controllers/*.render_controllers.json`, and a texture — `bedrock-asset-gen` can produce the placeholder geometry/animation/texture set; all pieces are cross-referenced by short names, not file paths, in the client entity JSON.
    - Add display name(s) to `texts/en_US.lang`. For `minecraft:entity_placer` items tied to a summonable entity, ALSO add the `item.spawn_egg.entity.<identifier>.name` key — Bedrock ignores `minecraft:display_name` for these and looks up that exact key instead.
 
-5. **Validate before calling it done:**
-   - `python3 -c "import json; json.load(open('<path>'))"` on every JSON file touched (Windows-style paths, e.g. `d:/PiCraft/...` — Git Bash's `/d/...` mount is flaky in this environment for file writes/reads).
-   - `node --check <path>` on every script file touched.
+5. **Validate before calling it done.** Delegate to the `bedrock-validator` agent, passing it the list of touched files — it runs JSON/JS syntax checks and cross-checks wiring (texture entries, `.lang` keys, loot table references, `main.js` script imports). Fix anything it flags before proceeding.
 
 6. **Tell the user to fully close and relaunch Minecraft**, not just reload the world, before testing — new script files, `.lang`/`languages.json` changes, and schema-affecting JSON (like `blocks.json`) are not picked up by a world reload alone.
 
 ## When something doesn't work in-game
 
-Don't guess-and-patch repeatedly. If a component/property/behavior doesn't work as expected after one reasonable attempt:
-1. Check `.claude/CLAUDE.md`'s "Lessons learned" section for a known gotcha.
-2. If not there, verify against Microsoft Learn's Script API/entity reference docs or a real vanilla sample in `Mojang/bedrock-samples`, not assumption.
-3. If still stuck, add a minimal, temporary diagnostic (e.g. `player.sendMessage(...)` at decision points) to see what's actually happening in-game rather than continuing to speculate blind.
-4. Once root-caused, remove the diagnostic and record the finding in CLAUDE.md's Lessons learned section if it's likely to recur.
+Don't guess-and-patch repeatedly. Delegate to the `bedrock-debugger` agent with the exact symptom/error — it checks CLAUDE.md's "Lessons learned" section for a known gotcha first, then verifies uncertain facts via `bedrock-researcher` (Microsoft Learn / vanilla `Mojang/bedrock-samples`), and only proposes a minimal temporary diagnostic (e.g. `player.sendMessage(...)` at a decision point) if the cause is still unclear — rather than guessing and re-patching blindly. Once root-caused, remove any diagnostic and record the finding in CLAUDE.md's Lessons learned section if it's likely to recur.
 
 ## After building
 
