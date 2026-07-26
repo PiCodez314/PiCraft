@@ -3,6 +3,7 @@ import "./items/luckyBlock.js";
 import "./magic/fireballWand.js";
 import "./magic/grappleHook.js";
 import "./magic/teleportScroll.js";
+import "./mobs/dragonFireBreath.js";
 
 world.afterEvents.playerSpawn.subscribe((event) => {
     if (event.initialSpawn) {
