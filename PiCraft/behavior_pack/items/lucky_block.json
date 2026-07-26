@@ -8,6 +8,9 @@
             }
         },
         "components": {
+            "minecraft:display_name": {
+                "value": "Lucky Block"
+            },
             "minecraft:icon": "picraft_lucky_block",
             "minecraft:block_placer": {
                 "block": "picraft:lucky_block"
