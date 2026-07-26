@@ -1,0 +1,30 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "PiCraft",
+        "description": "PiCraft Resource Pack",
+        "uuid": "4cc4b6b1-d9e9-46d9-9893-272af52771f2",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            21,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "description": "PiCraft Resource Pack",
+            "uuid": "07220420-6c43-46fb-bcea-0e7a14eea19b",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}

@@ -1,3 +1,5 @@
-import {world} from "@minecraft/server";
+import {world, system} from "@minecraft/server";
 
-world.sendMessage("Hello, Minecraft PiWorld!");
+system.run(() => {
+    world.sendMessage("Hello, Minecraft PiWorld!");
+});
