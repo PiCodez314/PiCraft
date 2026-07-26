@@ -1,5 +1,8 @@
-import {world, system} from "@minecraft/server";
+import {world} from "@minecraft/server";
+import "./items/luckyBlock.js";
 
-system.run(() => {
-    world.sendMessage("Hello, Minecraft PiWorld!");
+world.afterEvents.playerSpawn.subscribe((event) => {
+    if (event.initialSpawn) {
+        world.sendMessage(`Welcome to PiWorld, ${event.player.name}!`);
+    }
 });
