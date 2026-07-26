@@ -24,6 +24,43 @@ This repo is set up to work with [Claude Code](https://claude.com/product/claude
 
 Everything it needs to do this well lives in `.claude/` (skills + specialized helper agents) and `.claude/CLAUDE.md` (project notes and lessons learned) — already part of this repo, nothing extra to set up.
 
+### Idea starters — things you can just ask for
+
+Not sure what to build first? Pick one and describe it in your own words — Claude Code will fill in the details with you.
+
+#### Stuff you hold or wear
+
+- A weapon or tool with a special power (extra damage, sets things on fire, knocks enemies back)
+- A wearable item that gives you an effect while worn (speed boots, night-vision goggles)
+- A magic item with a cooldown (wand, scroll, staff — see the fireball wand/grapple hook/teleport scroll already in this pack)
+
+#### Blocks
+
+- A block that does something surprising when broken or right-clicked (like the Lucky Block already in this pack)
+- A block that gives off light, sound, or particles when placed
+
+#### Creatures
+
+- A tameable/rideable pet (like the pet dragon already in this pack)
+- A friendly mob that trades or gives quests
+- A boss fight with its own arena, attacks, and phases
+
+#### Progression
+
+- A crafting recipe that turns basic materials into something special
+- A quest chain — a series of steps that unlock a reward at the end
+- A family achievement — a fun milestone (built or found something) that gets recognized in-game
+
+#### Look & feel
+
+- Sound effects or particle effects for an item, spell, or block
+- An in-game menu — like a shop, or a "pick your spell" list
+- Custom loot in chests you find while exploring
+
+#### Packaging
+
+- "Package a release" — turns everything built so far into a shareable `.mcaddon` file
+
 ## Development setup
 
 To test changes in-game, Minecraft needs to load the packs directly from this repo instead of a copy. Create symlinks from Minecraft's dev pack folders to this repo's `PiCraft/behavior_pack` and `PiCraft/resource_pack` directories.
