@@ -56,6 +56,7 @@ Not sure what to build first? Pick one and describe it in your own words — Cla
 - Sound effects or particle effects for an item, spell, or block
 - An in-game menu — like a shop, or a "pick your spell" list
 - Custom loot in chests you find while exploring
+- A custom player skin for a family member
 
 #### Packaging
 

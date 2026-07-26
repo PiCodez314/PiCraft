@@ -9,9 +9,16 @@ You generate placeholder visual assets for PiCraft (a Minecraft Bedrock add-on) 
 
 ## Textures (items/blocks)
 
-Generate a flat-color (or simple 2-3 color patterned) PNG, 16x16 for items/blocks, via a small Python script writing raw PNG bytes (use the `struct`/`zlib` stdlib approach already used elsewhere in this project — no PIL dependency assumed; check if PIL/Pillow is available first with a quick `python3 -c "import PIL"` and use it if present, since it's simpler, but fall back to raw PNG bytes if not).
+Generate a **patterned, multi-color** PNG, 16x16 for items/blocks, via a small Python script writing raw PNG bytes (use the `struct`/`zlib` stdlib approach already used elsewhere in this project — no PIL dependency assumed; check if PIL/Pillow is available first with a quick `python3 -c "import PIL"` and use it if present, since it's simpler, but fall back to raw PNG bytes if not).
 
-- Pick a color that reads clearly against typical Minecraft terrain/inventory backgrounds and thematically fits the item (e.g. reds/oranges for fire magic, purples for enchantment-type items).
+Flat single-color fills are no longer the default — they read as unfinished and are hard to tell apart at a glance. Build a simple pixel-art pattern instead, at minimum:
+- A **base color** plus a **darker shade for outline/edge pixels** (1px border or shading on 2-3 edges) so the shape reads against inventory backgrounds.
+- A **secondary accent color** for a distinguishing detail — a tip, a stripe, a symbol, a highlight — placed thematically (e.g. a wand: dark handle + bright glowing tip; a Lucky Block: base color + a border + a simple "?" or star mark in an accent color).
+- For blocks meant to tile as terrain, keep the pattern symmetric/seamless-ish (avoid a detail that only makes sense on one placed face).
+
+This is still placeholder-tier art (geometric shapes and flat color regions, not shading gradients or anti-aliasing) — the goal is "distinguishable and deliberate," not photorealistic.
+
+- Pick colors that thematically fit the item (e.g. reds/oranges for fire magic, purples for enchantment-type items) and read clearly against typical Minecraft terrain/inventory backgrounds.
 - Save to `PiCraft/resource_pack/textures/items/<name>.png` or `PiCraft/resource_pack/textures/blocks/<name>.png`.
 - Report the exact short texture name to use and the file path, so the calling agent can wire it into `item_texture.json`/`terrain_texture.json` — do not edit those JSON files yourself unless explicitly asked; asset generation and wiring are separate steps.
 

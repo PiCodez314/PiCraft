@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 PiCraft is a Minecraft: Bedrock Edition add-on built for family LAN play (see `README.md`). Planned features: custom items, magic, Lucky Blocks, bosses, family achievements, quests. Currently at version 0.1.0, early scaffold stage — most pack subfolders are empty placeholders and only a "hello world" script exists.
 
-There is no build tooling or package manifest (no package.json/npm) — this is a plain Bedrock behavior pack + resource pack, authored directly as the files Minecraft loads.
+There is no build tooling or package manifest (no package.json/npm) — this is a plain Bedrock behavior pack + resource pack (+ an optional skin pack, see Structure below), authored directly as the files Minecraft loads.
 
 ## Structure
 
@@ -23,6 +23,7 @@ There is no build tooling or package manifest (no package.json/npm) — this is 
   - `textures/{blocks,items,entity}/` — PNGs; `textures/item_texture.json` and `textures/terrain_texture.json` map short texture names to these files.
   - `texts/` — `languages.json` (lists active locales, e.g. `en_US`) + `en_US.lang` (display-name key/value pairs). Both are required together or neither loads.
   - `sounds/` — still empty.
+- `PiCraft/skin_pack/` — not yet created; a separate top-level pack (own `manifest.json` with a `skin_pack` module type, distinct UUIDs) for custom player character skins. Created on first use by the `bedrock-skins` skill — see that skill for the file layout and `skins.json` schema before adding one.
 - `PiCraft/docs/` — `features/` (per-feature specs, saved by the `picraft-addon` skill after each build), `player-guide.md` (family-facing rundown of what's in the add-on), `dev-setup.md` (expanded dev-loop notes beyond this file).
 - `PiCraft/changelog.md` — empty.
 - `Releases/` — packaged output (e.g. `.mcaddon`), currently empty.
