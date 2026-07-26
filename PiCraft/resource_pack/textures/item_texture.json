@@ -4,6 +4,9 @@
     "texture_data": {
         "picraft_lucky_block": {
             "textures": "textures/blocks/lucky_block"
+        },
+        "picraft_dragon_egg": {
+            "textures": "textures/items/dragon_egg"
         }
     }
 }

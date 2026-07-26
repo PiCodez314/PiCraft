@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "picraft:dragon",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/dragon"
+            },
+            "geometry": {
+                "default": "geometry.picraft_dragon"
+            },
+            "animations": {
+                "move": "animation.picraft_dragon.move",
+                "look_at_target": "animation.picraft_dragon.look_at_target"
+            },
+            "scripts": {
+                "animate": ["move", "look_at_target"]
+            },
+            "render_controllers": ["controller.render.picraft_dragon"]
+        }
+    }
+}

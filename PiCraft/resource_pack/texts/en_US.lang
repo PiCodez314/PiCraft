@@ -1,2 +1,5 @@
 tile.picraft:lucky_block.name=Lucky Block
 item.picraft:lucky_block.name=Lucky Block
+item.picraft:dragon_egg.name=Dragon Egg
+item.spawn_egg.entity.picraft:dragon.name=Dragon Egg
+entity.picraft:dragon.name=Dragon

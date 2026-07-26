@@ -1,0 +1,40 @@
+{
+    "format_version": "1.21.0",
+    "animations": {
+        "animation.picraft_dragon.move": {
+            "loop": true,
+            "animation_length": 1.0,
+            "bones": {
+                "wing_left": {
+                    "rotation": {
+                        "0.0": [0, 0, 0],
+                        "0.5": [0, 0, -25],
+                        "1.0": [0, 0, 0]
+                    }
+                },
+                "wing_right": {
+                    "rotation": {
+                        "0.0": [0, 0, 0],
+                        "0.5": [0, 0, 25],
+                        "1.0": [0, 0, 0]
+                    }
+                },
+                "tail": {
+                    "rotation": {
+                        "0.0": [0, 0, 0],
+                        "0.5": [0, 10, 0],
+                        "1.0": [0, 0, 0]
+                    }
+                }
+            }
+        },
+        "animation.picraft_dragon.look_at_target": {
+            "loop": true,
+            "bones": {
+                "head": {
+                    "rotation": ["query.target_x_rotation", "query.target_y_rotation", 0]
+                }
+            }
+        }
+    }
+}
