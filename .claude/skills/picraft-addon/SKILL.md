@@ -38,4 +38,6 @@ Don't guess-and-patch repeatedly. Delegate to the `bedrock-debugger` agent with 
 
 ## After building
 
-Ask whether to commit and push — this project treats each feature (Lucky Block, dragon, magic system) as its own commit with a descriptive message covering what was built and why any non-obvious implementation choices were made.
+1. **Save the spec.** If a spec was produced (by `bedrock-designer`/`bedrock-quest-designer`, or scoped ad hoc), write it to `PiCraft/docs/features/<feature-name>.md` — this is the record of what was decided and why, kept around after implementation. If scoped ad hoc without a agent-produced spec, write a short equivalent covering the same shape (behavior, files touched, key components, open questions).
+2. **Update the player guide.** Add a short player-facing entry to `PiCraft/docs/player-guide.md` (what it does, how to use it in-game) — see the skill for changelog entries, `bedrock-changelog`, for the tone to match.
+3. Ask whether to commit and push — this project treats each feature (Lucky Block, dragon, magic system) as its own commit with a descriptive message covering what was built and why any non-obvious implementation choices were made.

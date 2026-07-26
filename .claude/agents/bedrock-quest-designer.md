@@ -34,4 +34,4 @@ Quests/achievements differ from single-item features in one key way: they need *
 
 ## Reporting
 
-Return the spec as structured text ready to hand to the picraft-addon skill for implementation.
+Return the spec as structured text ready to hand to the picraft-addon skill for implementation. The calling workflow (picraft-addon) is responsible for saving this spec to `PiCraft/docs/features/<feature-name>.md` once the feature is built — don't save it yourself.

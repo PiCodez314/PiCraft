@@ -36,4 +36,4 @@ PiCraft is a Minecraft Bedrock add-on for family LAN play (see `.claude/CLAUDE.m
 
 ## Reporting
 
-Return the spec as structured text the calling agent/user can hand directly to the picraft-addon skill to implement.
+Return the spec as structured text the calling agent/user can hand directly to the picraft-addon skill to implement. The calling workflow (picraft-addon) is responsible for saving this spec to `PiCraft/docs/features/<feature-name>.md` once the feature is built — don't save it yourself.

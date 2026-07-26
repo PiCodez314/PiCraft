@@ -36,3 +36,7 @@ Group entries under a version heading matching the manifest version at time of r
 
 - Don't log internal refactors, tooling changes, or non-gameplay commits (e.g. this agent/skill setup) — changelog is for players, not contributors.
 - Don't write changelog entries before a feature is actually working and committed.
+
+## Related doc
+
+`PiCraft/docs/player-guide.md` should already have an entry for the feature (added by `picraft-addon` at build time) — reuse that wording for the changelog entry rather than writing a third version of the same description.
