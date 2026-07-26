@@ -2,22 +2,27 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project status
+## Project overview
 
-PiCraft is a Minecraft: Bedrock Edition add-on (behavior pack + resource pack). The project is currently a bare scaffold — `PiCraft/manifest.json`, `PiCraft/changelog.md`, `PiCraft/behavior_pack/`, `PiCraft/resource_pack/`, and `PiCraft/docs/` all exist but are empty. There is no build tooling, package manifest, or source code yet, and this directory is not a git repository.
+PiCraft is a Minecraft: Bedrock Edition add-on built for family LAN play (see `README.md`). Planned features: custom items, magic, Lucky Blocks, bosses, family achievements, quests. Currently at version 0.1.0, early scaffold stage — most pack subfolders are empty placeholders and only a "hello world" script exists.
 
-## Expected structure
+There is no build tooling or package manifest (no package.json/npm) — this is a plain Bedrock behavior pack + resource pack, authored directly as the files Minecraft loads.
 
-Bedrock add-ons follow a standard two-pack layout:
+## Structure
 
-- `PiCraft/manifest.json` — pack manifest(s) (header/module UUIDs, format_version, dependencies). Bedrock add-ons typically need a `manifest.json` per pack (behavior_pack and resource_pack each have their own), so expect this to split as content is added.
-- `PiCraft/behavior_pack/` — entities, items, blocks, loot tables, recipes, scripts (functions/mcfunction or Script API), spawn rules.
-- `PiCraft/resource_pack/` — textures, models, sounds, UI, lang files, render controllers/animations.
-- `PiCraft/docs/` — project documentation.
-- `PiCraft/changelog.md` — version history.
-- `Releases/` — packaged output (e.g. `.mcaddon`/`.mcpack` builds), currently empty.
+- `PiCraft/behavior_pack/` — `manifest.json` declares a script module (`Javascript`, entry `scripts/main.js`) depending on `@minecraft/server`.
+  - `scripts/main.js` — entry point, currently just sends a world chat message on load.
+  - `scripts/{events,items,magic,mobs,utils}/` — empty, intended module split for gameplay script code.
+  - `blocks/`, `entities/`, `items/`, `functions/`, `texts/` — empty, for JSON block/entity/item definitions, `.mcfunction` files, and localization.
+- `PiCraft/resource_pack/` — `manifest.json` is currently empty (needs a valid header/module block before the pack will load in-game).
+  - `models/`, `sounds/`, `textures/`, `texts/` — empty, for client-side assets.
+- `PiCraft/docs/` — empty.
+- `PiCraft/changelog.md` — empty.
+- `Releases/` — packaged output (e.g. `.mcaddon`), currently empty.
+- `tools/` — empty, reserved for build/packaging scripts.
 
 ## Notes for future work
 
-- Since there's no git history or existing code yet, there are no established conventions to infer — confirm structural decisions (manifest UUIDs, folder split, naming) with the user rather than assuming.
-- Update this file once real manifests, packs, and any build/packaging scripts exist, including actual commands for packaging/testing in-game.
+- `resource_pack/manifest.json` is empty and must be filled in (with its own UUIDs, distinct from the behavior pack's) before the resource pack is valid.
+- Behavior pack scripts use ES module imports from `@minecraft/server` (the Script API) — no bundler is set up yet, so keep in mind Bedrock's script loading model (single entry point per manifest) when splitting code across the `events/items/magic/mobs/utils` folders.
+- No git history yet to infer conventions from — confirm naming/UUID/module-split decisions with the user rather than assuming.

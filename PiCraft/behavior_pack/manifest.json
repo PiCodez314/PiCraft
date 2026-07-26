@@ -1,0 +1,38 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "PiCraft",
+        "description": "PiCraft Behavior Pack",
+        "uuid": "011686d1-eda3-4a5a-b860-acda4d42e35f",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            21,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "script",
+            "language": "Javascript",
+            "description": "PiCraft Behavior Pack",
+            "uuid": "e490b261-073e-407c-91d9-179802948203",
+            "version": [
+                1,
+                0,
+                0
+            ],
+            "entry": "scripts/main.js"
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "*"
+        }
+    ]
+}
