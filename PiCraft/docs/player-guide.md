@@ -14,7 +14,7 @@ What's currently in the add-on and how to use it. Updated as features are built.
 
 ## Creatures
 
-- **Pet dragon** — tameable/rideable. Flies when mounted; wanders when not. Breathes fire: sneak while riding to breathe fire where you're facing, or let it auto-defend with fire breath against nearby hostile mobs when you're not riding it.
+- **Pet dragon** — tameable/rideable. Flies when mounted; wanders when not. Breathes fire: swing/attack while riding to breathe fire where you're facing, or let it auto-defend with fire breath against nearby hostile mobs when you're not riding it.
 
 ## Coming later
 
